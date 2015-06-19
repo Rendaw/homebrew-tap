@@ -1,9 +1,15 @@
-class PolytaxisPython < Formula
-  homepage "https://github.com/rendaw/polytaxis-unwrap"
-  url "https://github.com/rendaw/polytaxis-unwrap/archive/1.0.0.tar.gz"
-  sha1 "0a323c749241b0dcb313b3d4cc9411d8b34bbf75"
+class PolytaxisUnwrap < Formula
+  desc "polytaxis-unwrap"
+  homepage "https://github.com/Rendaw/polytaxis-unwrap/"
+  head "https://github.com/Rendaw/polytaxis-unwrap.git", :using => :git
+
+  depends_on :osxfuse
+  depends_on "tup"
 
   def install
-  	bin.install "formalfriday"
+    system "tup", "init"
+    system "cp", "tup.template.config", "tup.config"
+    system "tup", "upd"
+    bin.install "polytaxis-unwrap"
   end
 end
