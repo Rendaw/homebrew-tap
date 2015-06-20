@@ -17,6 +17,7 @@ class PolytaxisAdventure < Formula
   head "https://github.com/Rendaw/ptadventure.git", :using => :git
 
   depends_on :python3
+  depends_on :pyqt5
 
   $pypi_tuples.each do |tuple|
     resource tuple[0] do
@@ -30,9 +31,9 @@ class PolytaxisAdventure < Formula
     sha256 "f736ade482a56833182549ab2b153178b3a4e65e48837da60781bc8b5a130720"
   end
   
-  resource "polytaxis-utils" do
-    url "https://github.com/Rendaw/polytaxis-utils/archive/master.zip"
-    sha256 "8c36978135a03642f01825be527a6c5c2ada64fc70b7f20ff911697ea4e4db42"
+  resource "polytaxis-monitor" do
+    url "https://github.com/Rendaw/polytaxis-monitor/archive/master.zip"
+    sha256 "ed3de4fde6f9618f9fea885c030fa8e44e5e337551b376817e0305307415cb6e"
   end
 
   def install
@@ -44,7 +45,7 @@ class PolytaxisAdventure < Formula
     end
     $pypi_tuples.each do |r| install_pip r[0] end
     install_pip "polytaxis-python"
-    install_pip "polytaxis-utils"
+    install_pip "polytaxis-monitor"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.4/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
