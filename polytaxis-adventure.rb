@@ -13,7 +13,7 @@ class PolytaxisAdventure < Formula
   head "https://github.com/Rendaw/ptadventure.git", :using => :git
 
   depends_on :python3
-  depends_on "pyqt5" => "with-python3" if OS.mac?
+  depends_on "pyqt5" if OS.mac?
 
   $pypi_tuples.each do |tuple|
     resource tuple[0] do
@@ -33,6 +33,8 @@ class PolytaxisAdventure < Formula
   end
 
   def install
+    # Homebrew sets an incorrect default PYTHONPATH in env for some reason
+    ENV["PYTHONPATH"] = "/usr/local/lib/python3.4/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python3.4/site-packages"
     def install_pip(r)
       resource(r).stage do
