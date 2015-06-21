@@ -17,7 +17,7 @@ class PolytaxisAdventure < Formula
   head "https://github.com/Rendaw/ptadventure.git", :using => :git
 
   depends_on :python3
-  depends_on :pyqt5
+  depends_on "pyqt5" if OS.mac?
 
   $pypi_tuples.each do |tuple|
     resource tuple[0] do
