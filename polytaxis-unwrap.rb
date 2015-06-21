@@ -11,6 +11,7 @@ class PolytaxisUnwrap < Formula
     system "tup", "init"
     system "cp", "tup.template.config", "tup.config"
     inreplace "tup.config" do |s|
+      s.gsub! /^CONFIG_PLATFORM=.*$/, "CONFIG_PLATFORM=osx"
       s.gsub! /^CONFIG_COMPILERBIN=.*$/, "CONFIG_COMPILERBIN=g++-5"
       s.gsub! /^CONFIG_CCOMPILERBIN=.*$/, "CONFIG_CCOMPILERBIN=gcc-5"
       s.gsub! /^CONFIG_LINKERBIN=.*$/, "CONFIG_LINKERBIN=g++-5"
