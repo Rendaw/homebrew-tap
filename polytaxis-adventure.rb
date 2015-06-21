@@ -36,7 +36,7 @@ class PolytaxisAdventure < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python3.4/site-packages"
     def install_pip(r)
       resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
     $pypi_tuples.each do |r| install_pip r[0] end
@@ -44,7 +44,7 @@ class PolytaxisAdventure < Formula
     install_pip "polytaxis-monitor"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.4/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
