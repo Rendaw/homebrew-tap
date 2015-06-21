@@ -29,7 +29,7 @@ class PolytaxisAdventure < Formula
   
   resource "polytaxis-monitor" do
     url "https://github.com/Rendaw/polytaxis-monitor/archive/master.zip"
-    sha256 "b8641986c22e569016893ec0c1afba77e4bab98a754bc64c56c14fec4ea0f9c3"
+    sha256 "5c01c50adcf785f72ee7ffb24a05163054e7c0ef5305cd8b2e7aa1d6c09b35ea"
   end
 
   def install
